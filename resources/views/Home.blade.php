@@ -9,6 +9,6 @@
 <body>
     <h1>This Custom Hone Page</h1>
     <a href="{{ route('about') }}">About</a>
-    <a href="{{ route('user', ['id'=> 1, 'slug'=>'welcome']) }}">User</a>
+
 </body>
 </html>
