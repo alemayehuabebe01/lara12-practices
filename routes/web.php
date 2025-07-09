@@ -1,12 +1,11 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\HomeController;
 use App\Models\Blog;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [HomeController::class,'index']);
 
 Route::get('/about', function(){
   echo "Hey am about us Page Know";
