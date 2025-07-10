@@ -35,6 +35,7 @@ class HomeController extends Controller
         //
         $blogs = DB::table('blogs')->pluck('title')->toArray();
         dd($blogs);
+        
 
         return view('welcome');
     }
