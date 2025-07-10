@@ -53,12 +53,27 @@ class HomeController extends Controller
 
         //retrive data from db by eloquent ORM
 
-        $users = User::all();
+        // $users = User::find(1);
 
-        foreach ($users as $user){
-            echo $user->name . '---' . $user->email;
-            echo "<br>";
-        }
+        // foreach ($users as $user){
+        //     echo $user->name . '---' . $user->email;
+        //     echo "<br>";
+        // }
+        // dd($users);
+
+        // Update data thruth eloquent ORM
+
+        // $user = User::where('id',1)->first();
+
+        // $user->email = 'helo@gmil.com';
+
+        // $user->save();
+
+        //how delete the data fromdb using eloquent ORM
+
+        $users = User::find(3);
+        $users->delete();
+
 
 
         return view('welcome');
