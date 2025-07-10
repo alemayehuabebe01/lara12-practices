@@ -71,8 +71,8 @@ class HomeController extends Controller
 
         //how delete the data fromdb using eloquent ORM
 
-        $users = User::find(3);
-        $users->delete();
+        // $users = User::findOrFail(3);
+        // $users->delete();
 
 
 
