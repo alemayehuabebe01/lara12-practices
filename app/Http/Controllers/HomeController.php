@@ -97,13 +97,13 @@ class HomeController extends Controller
         // $product = Product::where('id','>', 1)->first();
 
 
-        $product = Product::where('name','LIKE','%Velit%')->get();
-        dd($product);
+        // $product = Product::whereIn('id',[1,2,3,4,5])->get();
+        // dd($product);
 
+        //soft delete
 
-
-
-
+        //Product::find(2)->delete();
+        dd(Product::find(2));
 
         return view('welcome');
     }
