@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
@@ -33,9 +34,32 @@ class HomeController extends Controller
         // DB::table('users')->where('id',2)->delete();
 
         //
-        $blogs = DB::table('blogs')->pluck('title')->toArray();
-        dd($blogs);
-        
+        // $blogs = DB::table('blogs')->pluck('title')->toArray();
+        // dd($blogs);
+
+        // $products = DB::table('products')->get()->count();
+
+        // dd($products);
+
+        // create data in db with equint orm
+
+        // $user = new User();
+
+        // $user->name = 'alexs';
+        // $user->email = 'tomas@gmail.com';
+        // $user->password = '123456';
+
+        // $user->save();
+
+        //retrive data from db by eloquent ORM
+
+        $users = User::all();
+
+        foreach ($users as $user){
+            echo $user->name . '---' . $user->email;
+            echo "<br>";
+        }
+
 
         return view('welcome');
     }
