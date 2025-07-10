@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -73,6 +74,34 @@ class HomeController extends Controller
 
         // $users = User::findOrFail(3);
         // $users->delete();
+
+        // User::create([
+        //     'name'=> 'test user',
+        //     'email' => 'alx@gmail.com',
+        //     'password' => '12345',
+        // ]);
+
+        // User::insert([
+        //     [
+        //         'name' => 'test user 2',
+        //         'email' => 'testuser@gmail.com',
+        //         'password' => '12345'
+        //     ],
+        //     [
+        //         'name' => 'test user 3',
+        //         'email' => 'testuser3@gmail.com',
+        //         'password' => '12345'
+        //     ]
+        // ]);
+
+        // $product = Product::where('id','>', 1)->first();
+
+
+        $product = Product::where('name','LIKE','%Velit%')->get();
+        dd($product);
+
+
+
 
 
 
