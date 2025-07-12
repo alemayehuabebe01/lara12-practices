@@ -22,3 +22,4 @@ Route::get('/blog',function(){
 });
 
 Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('contact', [ContactController::class, 'contactStore'])->name('contact.store');
