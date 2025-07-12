@@ -103,7 +103,7 @@ class HomeController extends Controller
         //soft delete
 
         //Product::find(2)->delete();
-        dd(Product::find(2));
+        // dd(Product::find(2));
 
         return view('welcome');
     }
