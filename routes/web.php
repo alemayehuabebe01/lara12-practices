@@ -27,3 +27,4 @@ Route::post('contact', [ContactController::class, 'contactStore'])->name('contac
 
 Route::get('/file-upload',[FileUploderController::class,'index'])->name('file.upload');
 Route::post('/file-upload',[FileUploderController::class, 'store'])->name('file.store');
+Route::get('/file-download',[FileUploderController::class, 'download'])->name('file.download');

@@ -90,6 +90,24 @@
                             <label for="firstName"><i class="fas fa-user contact-icon"></i>Choose File</label>
                         </div>
                     </div>
+
+                    <table>
+                        <tbody>
+                            @foreach ($files as $file)
+                            <td><img src="/storage/{{ $file->file_path }}" alt=""></td>
+                              @endforeach
+                        </tbody>
+                    </table>
+                    <hr>
+                    <table>
+                        <tbody>
+                            {{-- @foreach ($files as $file) --}}
+                            <td>
+                                <a href="{{ route('file.download') }}">Download File</a>
+                            </td>
+                            {{-- @endforeach --}}
+                        </tbody>
+                    </table>
                 </div>
 
 
