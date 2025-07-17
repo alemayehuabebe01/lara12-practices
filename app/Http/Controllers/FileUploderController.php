@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class FileUploderController extends Controller
 {
@@ -17,10 +18,14 @@ class FileUploderController extends Controller
     public function store(Request $request){
 
         //  $file = Storage::disk('local')->put('/',$request->file('file'));
-        $file = $request->file('file')->store('/','public');
-  
+        $file = $request->file('file');
+        $customeName = 'wishu_'.Str::uuid();
+        $ext = $file->getClientOriginalExtension(); // get the file extension
+        $fileName  = $customeName . '.' . $ext;
+        
+        $path = $file->storeAs('/',$fileName,'dir_public');
         $fileStore = new File();
-        $fileStore->file_path = $file;
+        $fileStore->file_path = '/uploads/'.$path;
         $fileStore->save();
 
         dd('stored');
