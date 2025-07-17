@@ -6,11 +6,16 @@ use App\Models\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File as handleFile;
 
 class FileUploderController extends Controller
 {
     public function index()
     {
+      $file = File::find(5);
+      handleFile::delete(public_path($file->file_path));
+      $file->delete();
+
       $files = File::all();
       return view('file-upload', ['files' => $files]);
     }
@@ -27,6 +32,8 @@ class FileUploderController extends Controller
         $fileStore = new File();
         $fileStore->file_path = '/uploads/'.$path;
         $fileStore->save();
+
+        
 
         dd('stored');
     }
