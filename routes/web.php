@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FileUploderController;
 use App\Http\Controllers\HomeController;
 use App\Models\Blog;
 use Illuminate\Support\Facades\Route;
@@ -23,3 +24,5 @@ Route::get('/blog',function(){
 
 Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('contact', [ContactController::class, 'contactStore'])->name('contact.store');
+
+Route::get('/file-upload',[FileUploderController::class,'index'])->name('file.upload');
