@@ -117,7 +117,7 @@
 
                 <div class="mb-4">
                     <div class="form-floating">
-                        <textarea class="form-control" name="message" placeholder="Your message" id="message" style="height: 150px" value="" required>{{ old('message') }}</textarea>
+                        <textarea class="form-control" name="message" placeholder="Your message" id="message" style="height: 150px" required></textarea>
                         <label for="message"><i class="fas fa-comment contact-icon"></i>Your Message</label>
                     </div>
                 </div>
