@@ -80,7 +80,7 @@
         </div>
 
         <div class="contact-body">
-            <form action="" method="post">
+            <form action="{{ route('file.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row g-3 mb-4">
                     <div class="col-md-12">
