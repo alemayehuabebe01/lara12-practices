@@ -27,6 +27,7 @@ class FileUploderController extends Controller
     }
 
     public function download(){
-        return Storage::disk('public')->download('ee93aBg00oS2N2Y57nK6SsuNCYyJCiVdrXq7OWzh.jpg');
+        $filePath = storage_path('app/public/ee93aBg00oS2N2Y57nK6SsuNCYyJCiVdrXq7OWzh.jpg');
+        return response()->download($filePath);
     }
 }
