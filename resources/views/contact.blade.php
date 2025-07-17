@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,6 +71,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="contact-container">
         <div class="contact-header">
@@ -78,12 +80,18 @@
         </div>
 
         <div class="contact-body">
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    <span class="alert alert-danger">{{ $error }}</span>
+                @endforeach
+            @endif
             <form action="{{ route('contact.store') }}" method="post">
                 @csrf
                 <div class="row g-3 mb-4">
                     <div class="col-md-12">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="firstName" placeholder="First Name" name="name" required>
+                            <input type="text" class="form-control" id="firstName" placeholder="First Name"
+                                name="name" value="{{ old('name') }}" required>
                             <label for="firstName"><i class="fas fa-user contact-icon"></i>Name</label>
                         </div>
                     </div>
@@ -91,14 +99,16 @@
 
                 <div class="mb-4">
                     <div class="form-floating">
-                        <input type="email" class="form-control"  name="email" id="email" placeholder="Email Address" required>
+                        <input type="email" class="form-control" name="email" id="email"
+                            placeholder="Email Address" value="{{ old('email') }}" required>
                         <label for="email"><i class="fas fa-envelope contact-icon"></i>Email Address</label>
                     </div>
                 </div>
 
                 <div class="mb-4">
                     <div class="form-floating">
-                        <input type="tel" class="form-control" name="subject" id="phone" placeholder="Phone Number">
+                        <input type="tel" class="form-control" name="subject" id="phone"
+                            placeholder="Phone Number" value="{{ old('subject') }}">
                         <label for="phone"><i class="fas fa-phone contact-icon"></i>Subject</label>
                     </div>
                 </div>
@@ -107,7 +117,7 @@
 
                 <div class="mb-4">
                     <div class="form-floating">
-                        <textarea class="form-control" name="message" placeholder="Your message" id="message" style="height: 150px" required></textarea>
+                        <textarea class="form-control" name="message" placeholder="Your message" id="message" style="height: 150px" value="" required>{{ old('message') }}</textarea>
                         <label for="message"><i class="fas fa-comment contact-icon"></i>Your Message</label>
                     </div>
                 </div>
@@ -125,4 +135,5 @@
     <!-- Bootstrap 5 JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
