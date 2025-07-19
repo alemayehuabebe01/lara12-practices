@@ -25,7 +25,7 @@ class FileUploderController extends Controller
         //  $file = Storage::disk('local')->put('/',$request->file('file'));
 
         $request->validate([
-            'file' => ['required','file','mimes:zip,pdf,csv', 'max:3000']
+            'file' => ['required','image']
         ]);
 
         $file = $request->file('file');
@@ -38,9 +38,8 @@ class FileUploderController extends Controller
         $fileStore->file_path = '/uploads/'.$path;
         $fileStore->save();
 
+        return redirect()->route('home');
 
-
-        dd('stored');
     }
 
     public function download(){

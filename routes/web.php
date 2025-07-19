@@ -7,7 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Models\Blog;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [HomeController::class,'index']);
+Route::get('/', [HomeController::class,'index'])->name('home');
 
 Route::get('/about', function(){
   echo "Hey am about us Page Know";
