@@ -85,9 +85,12 @@
                 <div class="row g-3 mb-4">
                     <div class="col-md-12">
                         <div class="form-floating">
+                             <label for="firstName"><i class="fas fa-user contact-icon"></i>Choose File</label>
                             <input type="file" class="form-control" id="firstName" placeholder="First Name"
                                 name="file">
-                            <label for="firstName"><i class="fas fa-user contact-icon"></i>Choose File</label>
+                                @error('file')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                         </div>
                     </div>
 

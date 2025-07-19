@@ -12,9 +12,9 @@ class FileUploderController extends Controller
 {
     public function index()
     {
-      $file = File::find(5);
-      handleFile::delete(public_path($file->file_path));
-      $file->delete();
+    //   $file = File::find(5);
+    //   handleFile::delete(public_path($file->file_path));
+    //   $file->delete();
 
       $files = File::all();
       return view('file-upload', ['files' => $files]);
@@ -23,17 +23,22 @@ class FileUploderController extends Controller
     public function store(Request $request){
 
         //  $file = Storage::disk('local')->put('/',$request->file('file'));
+
+        $request->validate([
+            'file' => ['required','file','mimes:zip,pdf,csv', 'max:3000']
+        ]);
+
         $file = $request->file('file');
         $customeName = 'wishu_'.Str::uuid();
         $ext = $file->getClientOriginalExtension(); // get the file extension
         $fileName  = $customeName . '.' . $ext;
-        
+
         $path = $file->storeAs('/',$fileName,'dir_public');
         $fileStore = new File();
         $fileStore->file_path = '/uploads/'.$path;
         $fileStore->save();
 
-        
+
 
         dd('stored');
     }
